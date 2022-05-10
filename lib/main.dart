@@ -1,6 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:pokemonster/features/home/pages/home_loading.dart';
-import 'package:pokemonster/features/home/pages/home_page.dart';
+import 'package:pokemonster/common/repositories/pokemon_repository.dart';
+import 'package:pokemonster/features/pokemonster/screens/route.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: Container(),
+      home: PokerMonterRoute(
+        repository: PokemonRepository(
+          dio: Dio(),
+        ),
+      ),
+
+      /*HommeContainer(
+        repository: PokemonRepository(
+          dio: Dio(),
+        ),
+      ),*/
     );
   }
 }
